@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Djangorific Todo App{% endblock %}
+
+{% block content %}
+    {% if all_items %}
+        <table class="table table-dark">
+        {% for items in all_items %}
+            {% if items.completed %}
+                <tr class="table-primary">
+                    <td class="striker">{{items.item}}</td>
+                    <td style="text-align: center;">{{items.completed}}</td>
+                    <td style="text-align: center;">Delete</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{items.item}}</td>
+                    <td style="text-align: center;">{{items.completed}}</td>
+                    <td style="text-align: center;">Delete</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
+
